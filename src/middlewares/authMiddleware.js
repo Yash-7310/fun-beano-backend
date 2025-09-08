@@ -29,7 +29,8 @@ export const authenticate = async (req, res, next) => {
         }
 
         // attach the user in req
-        req.user = user;
+        const {full_name, _id, contact, email} = user;
+        req.user = {name: full_name, _id, contact, email};
         req.tokenPayload = decoded;
 
         next();
