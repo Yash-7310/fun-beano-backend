@@ -28,9 +28,6 @@ app.use(
   })
 );
 
-// Handle preflight explicitly
-app.options("*", cors());
-
 // setting up the body parser middleware after doing the cors as priority.
 app.use(express.json());
 
