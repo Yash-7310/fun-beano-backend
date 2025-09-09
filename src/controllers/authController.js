@@ -74,7 +74,7 @@ export const registerUser = async (req, res) => {
         // for testing purpose it is commented and a static code is created
         // const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-        const otp = 123456;
+        const otp = '123456';
         const hashed_otp = await bcrypt.hash(otp, 10);
 
         await Otp.findOneAndUpdate(
