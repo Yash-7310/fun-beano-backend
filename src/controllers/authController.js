@@ -70,7 +70,11 @@ export const registerUser = async (req, res) => {
     if(!existingContact) return res.status(400).json({status: 400, message: "contact not found." })
 
         // creating otp
-        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+        // for testing purpose it is commented and a static code is created
+        // const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+        const otp = 123456;
         const hashed_otp = await bcrypt.hash(otp, 10);
 
         await Otp.findOneAndUpdate(
