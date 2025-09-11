@@ -155,8 +155,10 @@ export const verifyOtp = async (req, res) => {
     // check or create user
     let userExists = await Users.findOne({ contact });
     if (!userExists) {
+      console.log("user dosen't exist to create new user");
       userExists = await Users.create({ full_name: name, contact });
     } else {
+      console.log("user exists and we are updating them");
       userExists = await Users.findOneAndUpdate(
         { contact },
         { full_name: name, updatedAt: new Date() }
