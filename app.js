@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./src/config/db.js";
 import userRoutes from "./src/routes/userRoutes.js";
 import authRoute from "./src/routes/authRoutes.js";
+import playzoneRoutes from "./src/routes/playzoneRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -39,6 +40,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoute);
+app.use("/api/playzones", playzoneRoutes);
 
 const PORT = process.env.PORT || 5001;
 try {
